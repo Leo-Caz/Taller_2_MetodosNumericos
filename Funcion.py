@@ -1,3 +1,4 @@
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -25,7 +26,7 @@ s0, m, k = 300.0, 0.25, 0.1
 
 
 def s(t):
-    return s0 - (m * g / k) * t + (m * 2 * g / k * 2) * (1 - np.exp(-k * t / m))
+    return s0 - (m * g / k) * t + (m ** 2 * g / k ** 2) * (1 - np.exp(-k * t / m))
 
 
 def graficar(t_star, historia, k_iteracion=None, archivo="caida.png"):
@@ -48,6 +49,7 @@ def graficar(t_star, historia, k_iteracion=None, archivo="caida.png"):
     plt.grid(True)
     plt.savefig(archivo, dpi=150)
     plt.show()
+
 
 t_star, historia = biseccion(s, 0.0, 20.0, TOL=1e-4)
 
